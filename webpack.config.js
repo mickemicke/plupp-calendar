@@ -1,5 +1,5 @@
 const path = require("path");
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
+const { ESBuildMinifyPlugin } = require('esbuild-loader');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
@@ -9,11 +9,10 @@ module.exports = {
     rules: [
       {
         test: /\.tsx?$/,
-        loader: 'ts-loader',
-        exclude: /node_modules/,
+        loader: 'esbuild-loader',
         options: {
-          // disable type checker - we will use it in fork plugin
-          transpileOnly: true,
+          loader: 'tsx', // Or 'ts' if you don't need tsx
+          target: 'es2016',
         },
       },
       {
@@ -26,12 +25,18 @@ module.exports = {
     extensions: ['.tsx', '.ts', '.js'],
   },
   plugins: [
-    new ForkTsCheckerWebpackPlugin(),
     new HtmlWebpackPlugin({
       title: 'Output Management',
       template: './template.html',
     }),
   ],
+  optimization: {
+    minimizer: [
+      new ESBuildMinifyPlugin({
+        target: 'es2016', // Syntax to compile to (see options below for possible values)
+      }),
+    ],
+  },
   output: {
     filename: 'bundle.js',
     path: path.resolve(__dirname, 'dist'),
