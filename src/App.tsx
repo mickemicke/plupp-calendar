@@ -1,10 +1,10 @@
 import logo from './logo.svg';
 import './App.css';
 import { useQuery } from '@apollo/client';
-import { GET_ITEMS } from './api/queries/getItems';
+import { GET_ACTIVITY } from './api/queries/getActivity';
 
 function App(): JSX.Element {
-  const { data } = useQuery(GET_ITEMS);
+  const { data } = useQuery(GET_ACTIVITY);
   console.log(`data`, data);
   return (
     <div className="App">

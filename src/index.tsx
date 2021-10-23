@@ -4,7 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MockedProvider } from '@apollo/client/testing';
-import { mocks } from './api/mocks/items';
+import { mocks } from './api/mocks/server';
 
 ReactDOM.render(
   <React.StrictMode>
