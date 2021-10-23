@@ -16,7 +16,7 @@ const DateList: React.FC<DateListProps> = (props): JSX.Element => {
   return (
     <div>
       {props.dates.map((date) => (
-        <DateListItem date={date} activity={findActivity(date)} />
+        <DateListItem key={date} date={date} activity={findActivity(date)} />
       ))}
     </div>
   );
