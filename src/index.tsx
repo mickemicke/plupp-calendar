@@ -5,11 +5,14 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { MockedProvider } from '@apollo/client/testing';
 import { mocks } from './api/mocks/server';
+import { ActivitiesProvider } from './state/reducer';
 
 ReactDOM.render(
   <React.StrictMode>
     <MockedProvider mocks={mocks} addTypename={false}>
-      <App />
+      <ActivitiesProvider>
+        <App />
+      </ActivitiesProvider>
     </MockedProvider>
   </React.StrictMode>,
   document.getElementById('root'),
