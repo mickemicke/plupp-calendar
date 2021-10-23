@@ -3,6 +3,7 @@ import './App.css';
 import { useQuery } from '@apollo/client';
 import { GET_ACTIVITY } from './api/queries/getActivity';
 import { createDaysList } from './helpers/createDaysList';
+import DateList from './pages/dateList/DateList';
 
 function App(): JSX.Element {
   const { data } = useQuery(GET_ACTIVITY);
@@ -13,15 +14,7 @@ function App(): JSX.Element {
   console.log(`daysList`, daysList);
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reloadd.
-        </p>
-        <a className="App-link" href="https://reactjs.org" target="_blank" rel="noopener noreferrer">
-          Learn React
-        </a>
-      </header>
+      <DateList dates={daysList} />
     </div>
   );
 }
