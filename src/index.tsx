@@ -3,10 +3,14 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
+import { MockedProvider } from '@apollo/client/testing';
+import { mocks } from './api/mocks/items';
 
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <MockedProvider mocks={mocks} addTypename={false}>
+      <App />
+    </MockedProvider>
   </React.StrictMode>,
   document.getElementById('root'),
 );

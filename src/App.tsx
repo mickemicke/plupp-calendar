@@ -1,8 +1,11 @@
-import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import { useQuery } from '@apollo/client';
+import { GET_ITEMS } from './api/queries/getItems';
 
-function App() {
+function App(): JSX.Element {
+  const { data } = useQuery(GET_ITEMS);
+  console.log(`data`, data);
   return (
     <div className="App">
       <header className="App-header">
