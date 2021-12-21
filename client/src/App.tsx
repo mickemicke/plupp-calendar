@@ -20,6 +20,7 @@ function App(): JSX.Element {
       dispatch({ type: 'SET_ACTIVITIES', payload: data?.activity });
     }
   }, [data]);
+
   console.log(`activities`, activities);
   const firstDayOfCurrentYear = new Date(new Date().getFullYear(), 0, 1);
   const lastDayOfCurrentYear = new Date(new Date().getFullYear(), 11, 31);
