@@ -1,4 +1,3 @@
-import './app.css';
 import { useQuery } from '@apollo/client';
 import { GET_ACTIVITY, GET_ACTIVITY_TYPE } from './api/queries/getActivity';
 import { createDaysList } from './helpers/createDaysList';

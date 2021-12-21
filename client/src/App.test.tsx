@@ -1,9 +1,9 @@
 import React from 'react';
 import { render, screen } from '@testing-library/react';
-import App from './App';
+import DateListItem from './pages/dateList/components/DateListItem';
 
 test('renders learn react link', () => {
-  render(<App />);
-  const linkElement = screen.getByText(/learn react/i);
+  render(<DateListItem date="2021-01-01" />);
+  const linkElement = screen.getByText(/2021-01-01/i);
   expect(linkElement).toBeInTheDocument();
 });
