@@ -1,0 +1,9 @@
+type Activity @entity {
+  _id: String! @id
+  type: String! @column
+  date: Date! @column
+}
+
+type Query {
+  GetActivities(userId: ID!): [Activity]!
+}
